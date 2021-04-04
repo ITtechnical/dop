@@ -1,0 +1,113 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+        <span class="brand-text font-weight-light"><b>Premium</b> TAILORING</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-5">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Menu
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'shop:dashboard' %}" class="nav-link">
+                                <i class="fas fa-home nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:newcustomer' %}" class="nav-link">
+                                <i class="fas fa-users nav-icon"></i>
+                                <p>Add Customer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:createrevenue' %}" class="nav-link">
+                                <i class="fas fa-money-bill-wave-alt nav-icon"></i>
+                                <p>Add Revenue</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:createexpenditure' %}" class="nav-link">
+                                <i class="fas fa-chart-line nav-icon"></i>
+                                <p>Add Expenditure</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Reports
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'shop:allorders' %}" class="nav-link">
+                                <i class="fas fa-anchor"></i>
+                                <p> All Orders</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:ordersdue' %}" class="nav-link">
+                                <i class="fas fa-anchor"></i>
+                                <p> Orders Due</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:delayedorders' %}" class="nav-link">
+                                <i class="fas fa-anchor"></i>
+                                <p> Delayed Orders</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:accountreceivable' %}" class="nav-link">
+                                <i class="fas fa-dollar-sign"></i>
+                                <p>  Account Receivable</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:totalrevenue' %}" class="nav-link">
+                                <i class="fas fa-dollar-sign"></i>
+                                <p> Total Revenue</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:totalexpense' %}" class="nav-link">
+                                <i class="fas fa-dollar-sign"></i>
+                                <p> Total Expenditure</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:income&expenditure' %}" class="nav-link">
+                                <i class="fas fa-Euro-sign"></i>
+                                <p>Income & Expenditure</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'shop:montlyincome&expenditure' %}" class="nav-link">
+                                <i class="fas fa-Euro-sign"></i>
+                                <p>Summary Income & Expenditure</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

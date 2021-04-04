@@ -1,0 +1,131 @@
+{% extends "shop/base.html" %}
+ {% load crispy_forms_tags %}
+  {% block content%}
+ <div class="row">
+    <div class="col-9 ">
+    
+        <!-- Main content -->
+        <div class="content ">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-lg">
+                        <div class="card ">
+                            <div class="card-header bg-pink color-palette">
+                                <h3 class="card-title">Customer Measurement</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" method="POST">
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            {{ form.accross_back|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.around_arm|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.hips|as_crispy_field }}
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            {{ form.waist|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.top_or_shirt_length|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.skirt_or_trouser_length|as_crispy_field }}
+                                        </div>   
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            {{ form.chest|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.sleeves|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.thigh|as_crispy_field }}
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            {{ form.bar|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.neck|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.knee|as_crispy_field }}
+                                        </div>
+                                        <div class="form-group col">
+                                            {{ form.calf|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn bg-pink color-palette">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <div class="col-3 ">
+    
+        <!-- Main content -->
+        <div class="content ">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-lg">
+                        <div class="card ">
+                            <div class="card-header bg-pink color-palette">
+                                <h3 class="card-title">Customer Details</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                           
+                                <div class="card-body">
+                                    <div class="form-group ">
+                                        <label class="details_tab text-muted" for="">Name: </label>
+                                        <p class="details_tab" >{{customer.first_name }}  {{ customer.last_name}}</p>
+                                        <label class="details_tab text-muted" for="">Gender: </label>
+                                        <p class="details_tab">{{customer.gender }}</p>
+                                        <label class="details_tab text-muted" for="">Contact: </label>
+                                        <p class="details_tab">{{customer.phone }} </p> 
+                                        <label class="details_tab text-muted" for="">Location: </label>
+                                        <p class="details_tab">{{customer.location }} </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col">
+                                            
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row">
+                                      
+                                    </div>
+                                </div>
+                              
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+ </div>
+    
+    {% endblock %}
+  

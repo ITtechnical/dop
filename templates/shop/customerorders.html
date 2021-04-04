@@ -1,0 +1,124 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="row">
+    <div class="col-9 ">
+
+        <!-- Main content -->
+        <div class="content ">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-lg">
+                        <div class="card ">
+                            <div class="card-header bg-pink color-palette">
+                                <h3 class="card-title">Customer Orders</h3>
+                            </div>
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-striped table-hover" role="grid" aria-describedby="example2_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending"
+                                                aria-label="Rendering engine: activate to sort column descending">Order ID
+                                            </th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending"
+                                                aria-label="Rendering engine: activate to sort column descending">Status
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Browser: activate to sort column ascending">Price</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Platform(s): activate to sort column ascending">Deposit</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">Balance</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">Closing Date</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for order in totals %}
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">{{order.id}}</td>
+                                            <td>
+                                                {% if order.status == 'Pending' %}
+                                                <span class="badge bg-danger">{{order.status}}</span>
+                                                {% else %}
+                                                <span class="badge bg-primary">{{order.status}}</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{order.price}}</td>
+                                            <td>{{order.amount_paid}}</td>
+                                            <td>{{order.balance}}</td>
+                                            <td>{{order.closing_date}}</td>
+                                            <td><span><a class="btn btn-sm btn-primary" href="{% url 'shop:editorder' order.id  %}">Edit</a></span>
+                                            </td>
+                                
+                                        </tr>
+                                
+                                        {% endfor %}
+                                
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+               
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <div class="col-3 ">
+
+        <!-- Main content -->
+        <div class="content ">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="col-lg">
+                        <div class="card ">
+                            <div class="card-header bg-pink color-palette">
+                                <h3 class="card-title">Customer Details</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+
+                            <div class="card-body">
+                                <div class="form-group ">
+                                    <label class="details_tab text-muted" for="">Name: </label>
+                                    <p class="details_tab">{{customer.first_name }} {{ customer.last_name}}</p>
+                                    <label class="details_tab text-muted" for="">Gender: </label>
+                                    <p class="details_tab">{{customer.gender }}</p>
+                                    <label class="details_tab text-muted" for="">Contact: </label>
+                                    <p class="details_tab">{{customer.phone }} </p>
+                                    <label class="details_tab text-muted" for="">Location: </label>
+                                    <p class="details_tab">{{customer.location }} </p>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+</div>
+
+{% endblock %}
