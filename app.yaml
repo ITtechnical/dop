@@ -3,7 +3,7 @@ services:
 - name: server
   github:
     repo: ITtechnical/dop
-    branch: static
+    branch: main
     deploy_on_push: true
   run_command: gunicorn --worker-tmp-dir /dev/shm seamstress.wsgi
   envs:
@@ -21,7 +21,7 @@ jobs:
   kind: PRE_DEPLOY
   github:
     repo: ITtechnical/dop
-    branch: static
+    branch: main
     deploy_on_push: true
   run_command: python manage.py migrate
   envs:
@@ -32,10 +32,10 @@ jobs:
     value: "${db.DATABASE_URL}"
     scope: RUN_TIME
 static_sites:
-- name: static
+- name: main
   github:
-    repo: digitalocean/sample-django
-    branch: static
+    repo: ITtechnical/dop
+    branch: main
     deploy_on_push: true
   # This happens as part of the Python/DJango buildpack:
   # build_command: python manage.py collectstatic --noinput
@@ -44,7 +44,7 @@ static_sites:
   - path: /static
 databases:
 # Create a new dev DB:
-- name: db
+- name: shop
   engine: PG
   version: "12"
 # Or bring an existing DB:
