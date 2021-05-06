@@ -1,1 +1,10 @@
 Django
+django-crispy-forms
+django-filter
+asgiref
+pytz
+sqlparse
+whitenoise
+dj-database-url
+gunicorn
+psycopg2
