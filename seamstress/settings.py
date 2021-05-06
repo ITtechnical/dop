@@ -78,15 +78,20 @@ WSGI_APPLICATION = 'seamstress.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'AUDITSERVICE',
-        'USER': 'dop',
-        'PASSWORD': 'lovia2020',
-        'HOST': 'localhost',
+if os.getenv("DEVELOPMENT_MODE", "False") == "True":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
     }
-}
+elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
+    if os.getenv("DATABASE_URL", None) is None:
+        raise Exception("DATABASE_URL environment variable not defined")
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    }
+
 
 
 # Password validation
